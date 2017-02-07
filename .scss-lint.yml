@@ -1,0 +1,41 @@
+#https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#propertysortorder
+#https://github.com/brigade/scss-lint/blob/master/data/property-sort-orders/concentric.txt
+
+# Default severity of all linters.
+severity: error
+
+linters:
+  Comment:
+    enabled: true
+    style: silent
+
+  ImportantRule:  # in new projects, set to true. now to overwrite foundation
+    enabled: false
+
+  LeadingZero:
+    enabled: true
+    style: include_zero # or 'exclude_zero'
+
+
+  NestingDepth:  #set to true in new project -> ues BEM
+    enabled: false
+
+  PlaceholderInExtend: #set to true in new project
+    enabled: false
+
+  PropertySortOrder:
+    enabled: true
+    order: concentric
+    separate_groups: false
+
+  QualifyingElement:  #set to true in new project
+    enabled: false
+
+  SelectorDepth:  #set to true in new project -> use BEM
+    enabled: false
+
+  SelectorFormat: #set to true in new project -> use BEM
+    enabled: false
+
+  TrailingWhitespace:
+    enabled: false
