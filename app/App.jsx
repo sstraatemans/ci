@@ -6,10 +6,6 @@ if (global) {
   global.System = { import () {} };
 }
 
-if (typeof window !== 'undefined') {
-    window.React = React;
-}
-
 const App = () => {
   return (
         <div className='app'>

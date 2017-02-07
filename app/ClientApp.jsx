@@ -7,4 +7,9 @@ import App from './App';
 
 const locale = 'en';
 
-render(<BrowserRouter><IntlProvider locale={locale}><App /></IntlProvider></BrowserRouter>, document.getElementById('app'));
+render(
+  <BrowserRouter>
+    <IntlProvider locale={locale}>
+      <App />
+    </IntlProvider>
+  </BrowserRouter>, document.getElementById('app'));
