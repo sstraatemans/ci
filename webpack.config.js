@@ -6,7 +6,26 @@ module.exports = function(env) {
   const isProd = nodeEnv === 'production';
 
   const plugins = [];
-
+  const rules = [
+    {
+      enforce: "pre",
+      test: /\.jsx?$/,
+      loader: "eslint-loader",
+      exclude: /node_modules/
+    },
+    {
+      test: /\.jsx?$/,
+      loader: 'babel-loader',
+      include: [
+        path.resolve('app'),
+        path.resolve('node_modules/preact-compat/src')
+      ]
+    },
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }
+  ];
 
   if (isProd) {
     plugins.push(
@@ -32,9 +51,31 @@ module.exports = function(env) {
         },
       })
     );
+
+    rules.push(
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+            notExtractLoader: 'style-loader',
+            loader: 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!postcss',
+        }),
+      }
+    );
+
   } else {
     plugins.push(
       new webpack.HotModuleReplacementPlugin()
+    );
+
+    rules.push(
+      {
+          test: /\.scss$/,
+          loaders: [
+              'style-loader?sourceMap',
+              'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]',
+              'sass-loader'
+          ]
+      }
     );
   }
 
@@ -55,7 +96,7 @@ module.exports = function(env) {
          react: 'preact-compat',
          'react-dom': 'preact-compat'
        },
-      extensions: ['.js', '.jsx', '.json']
+      extensions: ['.js', '.jsx', '.json', 'scss', 'css']
     },
     stats: {
       colors: true,
@@ -67,38 +108,7 @@ module.exports = function(env) {
       historyApiFallback: true
     },
     module: {
-      rules: [
-        {
-          enforce: "pre",
-          test: /\.jsx?$/,
-          loader: "eslint-loader",
-          exclude: /node_modules/
-        },
-        {
-          test: /\.css$/,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                url: false
-              }
-            }
-          ]
-        },
-        {
-          test: /\.jsx?$/,
-          loader: 'babel-loader',
-          include: [
-            path.resolve('app'),
-            path.resolve('node_modules/preact-compat/src')
-          ]
-        },
-        {
-          test: /\.json$/,
-          loader: 'json-loader'
-        }
-      ]
+      rules
     }
   };
 

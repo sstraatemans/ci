@@ -3,10 +3,7 @@ import thunk from 'redux-thunk';
 import localeReducer from './reducers/localeReducer';
 
 const reducers = combineReducers({
-  SearchState: searchReducer,
-  SearchInputState: searchInputReducer,
-  CompanyState: companyReducer,
-  NotificationState: notificationReducer
+  localeReducer,
 });
 
 
