@@ -1,7 +1,8 @@
 import * as types from "./../actionTypes";
+import Cookie from 'js-cookie';
 
 const initialState = {
-  locale: 'en'
+  locale: Cookie.get('locale') || 'en'
 };
 
 const setLocale = (state, action) => {
