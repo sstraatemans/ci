@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server",
     "lint": "eslint js/**/*.js server.js",
     "watch": "webpack --watch",
-    "start": "NODE_ENV=server node server.js"
+    "start": "NODE_ENV=server node server.js",
+    "json": "json-server ./public/data.json"
   },
   "dependencies": {
     "axios": "0.15.2",
@@ -48,16 +49,21 @@
     "eslint-plugin-promise": "2.0.1",
     "eslint-plugin-react": "6.3.0",
     "eslint-plugin-standard": "2.0.0",
+    "express": "^4.14.0",
+    "express-ws": "^2.0.0",
     "jest": "15.1.1",
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
+    "json-server": "^0.9.4",
     "node-sass": "^4.5.0",
+    "node-tweet-stream": "^2.0.1",
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
     "sass-loader": "^5.0.0",
     "style-loader": "^0.13.1",
     "webpack": "2.2.0",
-    "webpack-dev-server": "1.16.2"
+    "webpack-dev-server": "1.16.2",
+    "ws-json-server": "0.0.7"
   }
 }
