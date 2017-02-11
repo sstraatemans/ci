@@ -13,7 +13,6 @@ const Landing = React.createClass({
     this.setState({'message': e.target.value});
   },
   handleSubmit (e) {
-    console.info('send', this.state.message);
     this.socket.send(this.state.message);
 
   },

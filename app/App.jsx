@@ -6,6 +6,7 @@ import AsyncRoute from './utils/AsyncRoute';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import WebSocket from './utils/WebSocket';
 
 if (global) {
   global.System = { import () {} };
@@ -14,7 +15,9 @@ if (global) {
 const App = () => {
   return (
       <Provider store={store}>
+
         <div className='app'>
+          <WebSocket />
           <Header></Header>
           <Match
             exactly
