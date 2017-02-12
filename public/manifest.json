@@ -1,6 +1,8 @@
 {
-  "short_name": "Straatemans APP",
+  "short_name": "Straatemans",
   "name": "Steven Straatemans test APP",
+  "theme_color": "#4cadc4",
+  "background_color": "#4cadc4",
   "icons": [
     {
       "src": "/public/icons/apple-touch-icon-144x144-precomposed.png",
@@ -15,6 +17,11 @@
     {
       "src": "/public/icons/apple-touch-icon-72x72-precomposed.png",
       "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/icons/apple-touch-icon-192x192-precomposed.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ],
