@@ -7,6 +7,7 @@ this.addEventListener('fetch', event => {
         event.respondWith(
           fetch(event.request.url).catch(error => {
               // Return the offline page
+              console.log('offline');
               return caches.match("offline.html");
           })
     );

@@ -1,5 +1,12 @@
 require('babel-register');
 
+require.extensions['.scss'] = () => {
+  return;
+};
+require.extensions['.css'] = () => {
+  return;
+};
+
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -15,6 +22,8 @@ const App = require('./app/App').default;
 const server = express();
 
 server.use('/dist', express.static('./dist'));
+server.use('/public', express.static('./public'));
+
 
 server.use((req, res) => {
   const context = ReactRouter.createServerRenderContext();

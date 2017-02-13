@@ -1,11 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(env) {
   const nodeEnv = env && env.prod ? 'production' : 'development';
   const isProd = nodeEnv === 'production';
 
-  const plugins = [];
+  const plugins = [
+    new ExtractTextPlugin({filename: 'styles.css', allChunks: true})
+  ];
   const rules = [
     {
       enforce: "pre",
@@ -54,10 +57,10 @@ module.exports = function(env) {
 
     rules.push(
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
-            notExtractLoader: 'style-loader',
-            loader: 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!postcss',
+            fallback: 'style-loader',
+            use: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
         }),
       }
     );
@@ -69,12 +72,13 @@ module.exports = function(env) {
 
     rules.push(
       {
-          test: /\.scss$/,
-          loaders: [
-              'style-loader?sourceMap',
-              'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]',
-              'sass-loader'
-          ]
+        test: /\.s?css$/,
+         loaders:
+             ExtractTextPlugin.extract({fallback: 'style-loader',
+             use: [
+             'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+             'sass-loader?sourceMap&config=sassLoader']})
+
       }
     );
   }

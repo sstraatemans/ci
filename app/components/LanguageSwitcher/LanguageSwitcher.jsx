@@ -8,16 +8,12 @@ const LanguageSwitcher = React.createClass({
     this.props.dispatch(setLocale(locale));
   },
 
-  componentWillMount () {
-    console.log(this.props.locale);
-  },
-
   render () {
     return (
       <div>
-        <select name="switcher" onChange={ this.handleChange }>
-          <option value="en" selected={this.props.locale === 'en'}>English</option>
-          <option value="nl" selected={this.props.locale === 'nl'}>Nederlands</option>
+        <select name="switcher" onChange={ this.handleChange } defaultValue={this.props.locale}>
+          <option value="en">English</option>
+          <option value="nl">Nederlands</option>
         </select>
       </div>
     );
