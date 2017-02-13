@@ -4,9 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import LanguageSwitcher from './../LanguageSwitcher/LanguageSwitcher';
 
 const Header = React.createClass({
-  componentWillMount () {
-    console.log('will mount');
-  },
   render () {
     return (
       <header className={styles.header}>

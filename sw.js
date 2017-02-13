@@ -1,13 +1,13 @@
-var CACHE_NAME = 'CI-v2';
+var CACHE_NAME = 'CI-v5';
 var OFFLINE_URL = '/public/offline.html';
 var urlsToCache = [
-  '/public/serviceworker/sw.js',
+  '/sw.js',
   OFFLINE_URL
 ];
 
 if ('serviceWorker' in navigator) {
   self.addEventListener('load', function() {
-    navigator.serviceWorker.register('/public/serviceworker/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }).catch(function(err) {
@@ -25,6 +25,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
+        console.log('CACHE_NAME', urlsToCache);
         return cache.addAll(urlsToCache);
       })
   );
@@ -33,6 +34,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
   console.log('Service Worker activating.');
 
+/*
   var cacheWhitelist = ['CI-v1'];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
@@ -45,6 +47,7 @@ self.addEventListener('activate', function(event) {
       );
     })
   );
+*/  
 });
 
 var doesRequestAcceptHtml = function (request) {

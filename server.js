@@ -21,6 +21,7 @@ const App = require('./app/App').default;
 
 const server = express();
 
+server.use('/sw.js', express.static('./sw.js'));
 server.use('/dist', express.static('./dist'));
 server.use('/public', express.static('./public'));
 server.use('/node_modules', express.static('./node_modules'));
