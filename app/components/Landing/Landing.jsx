@@ -39,9 +39,12 @@ const Landing = React.createClass({
       <div className='landing'>
         landing<br/>
         <Link to="/news/search">
-          <FormattedMessage id="app.hello_world" defaultMessage="click here" description="Hello world header greeting" />
+          search
         </Link>
-
+        <FormattedMessage
+          id='Tooltip.fees'
+          defaultMessage='Click here to understand how we calculate fees.'
+        />
         <input type="text" id="message" onChange={this.handleMessage} />
         <button onClick={this.handleSubmit}>send</button>
 

@@ -1,11 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addLocaleData } from 'react-intl';
+import localeData from './../../translations/translations.json';
+import en from 'react-intl/locale-data/en';
+import nl from 'react-intl/locale-data/nl';
+
 import { setLocale } from './../../store/actions/localeActions';
+addLocaleData([...en, ...nl]);
 
 const LanguageSwitcher = React.createClass({
   handleChange (e) {
     let locale = e.target.value;
-    this.props.dispatch(setLocale(locale));
+    const messages = localeData[locale];
+    this.props.dispatch(setLocale(locale, messages));
   },
 
   render () {
@@ -22,7 +29,8 @@ const LanguageSwitcher = React.createClass({
 
 const mapStateToProps = (state) => {
   return {
-    locale: state.localeReducer.locale
+    locale: state.localeReducer.locale,
+    messages: state.localeReducer.messages
   };
 };
 
