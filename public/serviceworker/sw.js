@@ -1,13 +1,13 @@
 var CACHE_NAME = 'CI-v2';
-var OFFLINE_URL = '/offline.html';
+var OFFLINE_URL = '/public/offline.html';
 var urlsToCache = [
-  '/sw.js',
+  '/public/serviceworker/sw.js',
   OFFLINE_URL
 ];
 
 if ('serviceWorker' in navigator) {
   self.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/public/serviceworker/sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }).catch(function(err) {
