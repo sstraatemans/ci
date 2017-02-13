@@ -23,6 +23,7 @@ const server = express();
 
 server.use('/dist', express.static('./dist'));
 server.use('/public', express.static('./public'));
+server.use('/node_modules', express.static('./node_modules'));
 
 
 server.use((req, res) => {

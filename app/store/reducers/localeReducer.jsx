@@ -7,7 +7,7 @@ const initialState = {
 
 const setLocale = (state, action) => {
   const newState = {};
-  Object.assign(newState, state, {searchTerm: action.locale});
+  Object.assign(newState, state, {locale: action.locale});
   return newState;
 };
 
