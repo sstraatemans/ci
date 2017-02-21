@@ -17,12 +17,10 @@ const LanguageSwitcher = React.createClass({
 
   render () {
     return (
-      <div>
-        <select name="switcher" onChange={ this.handleChange } value={this.props.locale}>
-          <option value="en">English</option>
-          <option value="nl">Nederlands</option>
-        </select>
-      </div>
+      <select name="switcher" onChange={ this.handleChange } value={this.props.locale}>
+        <option value="en">English</option>
+        <option value="nl">Nederlands</option>
+      </select>
     );
   }
 });

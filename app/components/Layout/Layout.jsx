@@ -1,16 +1,18 @@
 import React from 'react';
 const { object, string } = React.PropTypes;
 import { connect } from 'react-redux';
+import {styles} from './Layout.scss';
+
 import { IntlProvider, addLocaleData } from 'react-intl';
 import localeData from './../../translations/translations.json';
 import en from 'react-intl/locale-data/en';
 import nl from 'react-intl/locale-data/nl';
-import Header from './../Header/Header';
-import Footer from './../Footer/Footer';
-import WebSocket from './../../utils/WebSocket';
-
 import { setLocale } from './../../store/actions/localeActions';
 addLocaleData([...en, ...nl]);
+
+import Header from './../Header/Header';
+import Footer from './../Footer/Footer';
+
 
 if (global) {
   global.System = { import () {} };
@@ -31,7 +33,6 @@ const Layout = React.createClass({
     return (
         <IntlProvider locale={this.props.locale} messages={this.props.messages}>
           <div>
-            <WebSocket />
             <Header></Header>
             {this.props.children}
             <Footer></Footer>
