@@ -25,6 +25,11 @@ const App = () => (
         pattern='/news/search'
         component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./components/News/News')} />}
       />
+      <Match
+        exactly
+        pattern='/twitter'
+        component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./components/Twitter/Twitter')} />}
+      />
     </Layout>
   </Provider>
 );
