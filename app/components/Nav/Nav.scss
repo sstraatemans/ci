@@ -1,14 +1,10 @@
 
-ul {
+.menu {
   list-style: none;
 
-  li {
+  &Item {
     display: inline-block;
     padding: 0 10px;
+    width: 100px;
   }
-}
-
-
-.logo {
-  width: 300px;
 }

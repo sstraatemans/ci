@@ -6,7 +6,7 @@ const Nav = React.createClass({
 
   render (){
     return (
-      <ul role="menubar">
+      <ul className={styles.menu} role="menubar">
         {this.props.children}
       </ul>
     );

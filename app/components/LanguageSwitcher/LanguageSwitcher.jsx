@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLocaleData } from 'react-intl';
+import { FormattedMessage, addLocaleData } from 'react-intl';
 import localeData from './../../translations/translations.json';
 import en from 'react-intl/locale-data/en';
 import nl from 'react-intl/locale-data/nl';
@@ -17,10 +17,14 @@ const LanguageSwitcher = React.createClass({
 
   render () {
     return (
-      <select name="switcher" onChange={ this.handleChange } value={this.props.locale}>
-        <option value="en">English</option>
-        <option value="nl">Nederlands</option>
-      </select>
+      <span>
+        <FormattedMessage id="Tooltip.fees" />
+        <select name="switcher" onChange={ this.handleChange } value={this.props.locale}>
+          <option value="en">English</option>
+          <option value="nl">Nederlands</option>
+        </select>
+      </span>
+
     );
   }
 });

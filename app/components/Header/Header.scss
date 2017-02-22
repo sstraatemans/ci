@@ -3,3 +3,23 @@ $test: #fff000;
 .header {
   background-color: $test;
 }
+
+.logo {
+  display: inline;
+}
+
+.language {
+  display: inline;
+}
+
+.moreMenu {
+  display: inline-block;
+  padding: 0 10px;
+  width: 100px;
+  color: #00ff00;
+
+  &List {
+    display: none;
+    list-style: none;
+  }
+}
