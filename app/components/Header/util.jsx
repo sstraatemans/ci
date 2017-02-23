@@ -10,7 +10,6 @@ export let truncateNav = (items, nav) => {
   let navElms = items.concat();
   nav.innerHTML = '';
 
-
   while(navElms.length){
     let item = navElms.shift();
     currentWidth += item.width;

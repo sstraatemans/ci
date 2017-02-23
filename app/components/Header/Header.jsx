@@ -1,8 +1,9 @@
 import React from 'react';
-const { array, string } = React.PropTypes;
+const { func, string } = React.PropTypes;
 import { connect } from 'react-redux';
 import styles from './Header.scss';
 import * as util from './util';
+import {ci} from './../../utils';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import {Nav,NavItem} from './Nav';
 import LanguageSwitcher from './../LanguageSwitcher/LanguageSwitcher';
@@ -12,7 +13,8 @@ const messages = localeData;
 
 const Header = React.createClass({
   propTypes: {
-    intl: intlShape.isRequired
+    intl: intlShape.isRequired,
+    resizeListener: func
   },
 
 
@@ -31,21 +33,23 @@ const Header = React.createClass({
     };
   },
 
-
-  componentDidMount () {
+  truncateListener () {
     let nav = React.findDOMNode(this.nav);
     let items = [].slice.call(nav.querySelectorAll("li"));
     let navElms = util.getWidthElms(items);
-
-    window.addEventListener("resize", () => {
+    return () => {
       util.truncateNav(navElms, nav);
-    });
-    util.truncateNav(navElms, nav);
+    };
+  },
 
+  componentDidMount () {
+    this.props.resizeListener = this.truncateListener();
+    ci(window).resize(this.props.resizeListener);
+    this.props.resizeListener();
   },
 
   componentWillUnmount: function() {
-    window.removeEventListener("resize", util.truncateNav);
+    ci(window).off('resize', this.props.resizeListener);
   },
 
   render () {
