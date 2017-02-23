@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Nav.scss';
+import styles from './../Header.scss';
 const { object, string } = React.PropTypes;
 import {Link} from 'react-router';
 
