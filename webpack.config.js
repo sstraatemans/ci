@@ -96,10 +96,10 @@ module.exports = function(env) {
       filename: '[name].bundle.js'
     },
     resolve: {
-       alias: {
-         react: 'preact-compat',
-         'react-dom': 'preact-compat'
-       },
+      //  alias: {
+      //    react: 'preact-compat',
+      //    'react-dom': 'preact-compat'
+      //  },
       extensions: ['.js', '.jsx', '.json', 'scss', 'css']
     },
     stats: {

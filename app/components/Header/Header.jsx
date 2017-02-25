@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 const { func, string } = React.PropTypes;
 import { connect } from 'react-redux';
 import styles from './Header.scss';
@@ -13,8 +14,7 @@ const messages = localeData;
 
 const Header = React.createClass({
   propTypes: {
-    intl: intlShape.isRequired,
-    resizeListener: func
+    intl: intlShape.isRequired
   },
 
 
@@ -34,38 +34,49 @@ const Header = React.createClass({
   },
 
   truncateListener () {
-    let nav = React.findDOMNode(this.nav);
+    let nav = ReactDOM.findDOMNode(this.nav);
     let items = [].slice.call(nav.querySelectorAll("li"));
     let navElms = util.getWidthElms(items);
+
+    let resizeTimer;
+    let _timer = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){
+
+        util.truncateNav(navElms, nav);
+      }, 250);
+    };
+
+    util.truncateNav(navElms, nav);
+
     return () => {
-      util.truncateNav(navElms, nav);
+      _timer();
     };
   },
 
   componentDidMount () {
-    this.props.resizeListener = this.truncateListener();
-    ci(window).resize(this.props.resizeListener);
-    this.props.resizeListener();
+    this.resizeListener = this.truncateListener();
+    ci(window).resize(this.resizeListener);
   },
 
   componentWillUnmount: function() {
-    ci(window).off('resize', this.props.resizeListener);
+    ci(window).off('resize', this.resizeListener);
   },
 
   render () {
     return (
       <header className={styles.header}>
-        <div class={styles.logo}>
+        <div className={styles.logo}>
           logo
         </div>
         <Nav ref={(nav) => {this.nav = nav;}}>
           {this.state.navItems.map((item) => {
             return (
-              <NavItem title={item.title} link={item.link} />
+              <NavItem key={item.title} title={item.title} link={item.link} />
             );
           })}
         </Nav>
-        <li class={styles.language}>
+        <li className={styles.language}>
           <LanguageSwitcher></LanguageSwitcher>
         </li>
       </header>
