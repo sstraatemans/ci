@@ -3,14 +3,13 @@ export const ci = (id) => {
     return new ci(id);
   }
 
-
   /** event listeners */
   let resize = (callback) => {
     id.addEventListener("resize", callback);
     return this;
   };
+
   let off = (type, callback) => {
-    console.log('remove');
     id.removeEventListener(type, callback);
     return this;
   };
@@ -35,14 +34,18 @@ export const ci = (id) => {
     return this;
   };
 
-  let hasClass = () => {
-    return true;
-    let classes = id.className;
-    console.log(classes);
-    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+  let hasClass = (className) => {
+		return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
   };
 
   let toggleClass = () => {
+    var newClass = ' ' + id.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
+    if (hasClass(className)) {
+        removeClass(className);
+    } else {
+        addClassName(className);
+    }
+
     return this;
   };
   /** classes */
