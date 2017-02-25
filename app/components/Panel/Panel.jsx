@@ -11,15 +11,16 @@ const Panel = React.createClass({
   showMoreButton () {
     if(this.props.showMore){
       return (
-        <span onClick={this.props.openPanel} data-button="showmore">showmore</span>
+        <span className={styles.showMore} onClick={this.props.openPanel} data-button="showmore">showmore</span>
       );
     }
   },
   render () {
     return (
       <div className={styles.panel} style={{height:PANEL_DEFAULT_HEIGHT+'px'}}>
-        {this.props.children}
-
+        <div>
+          {this.props.children}
+        </div>
         {this.showMoreButton()}
       </div>
     );

@@ -11,8 +11,8 @@ const Landing = React.createClass({
     return (
       <div className='landing'>
         <Row>
-          <Panel key="1">test</Panel>
-          <Panel key="2" showMore="true">test2</Panel>
+          <Panel key="2" showMore="true">test<br/>sdfsdf<br/><br/>sdf<br/>sdsf<br/>sdf<br/>ssdf<br/><br/><br/>sdfsdfssdf<br/><br/><br/>sssdfsdf</Panel>
+          <Panel key="1">test<br/>sdfsdf<br/><br/>sdf<br/>sdsf<br/>sdf<br/>ssdf<br/><br/><br/>sdfsdf</Panel>
         </Row>
 
 

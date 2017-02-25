@@ -35,7 +35,7 @@ export const ci = (id) => {
   };
 
   let hasClass = (className) => {
-		return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+		return new RegExp(' ' + className + ' ').test(' ' + id.className + ' ');
   };
 
   let toggleClass = () => {

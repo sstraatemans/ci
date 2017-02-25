@@ -4,7 +4,20 @@
 
 .panel {
   display: inline-block;
-  margin: 0 5px;
-  background-color: green;
-  width: 40%;
+  position: relative;
+  float: left;
+  transition: all 0.5s;
+  padding: 0 5px;
+  width: 50%;
+  overflow-y: hidden;
+  box-sizing: border-box;
+
+  &.showAll {
+
+  }
+}
+
+.showMore {
+  position: absolute;
+  bottom: 0;
 }
