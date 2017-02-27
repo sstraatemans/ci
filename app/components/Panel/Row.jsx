@@ -24,7 +24,7 @@ const Row = React.createClass({
   },
 
 
-  content () {
+  getChildren () {
     return React.Children.map(this.props.children, (child, idx) => {
       if(child.props.hasOwnProperty("showMore")){
         return React.cloneElement(child, {
@@ -70,7 +70,7 @@ const Row = React.createClass({
   render () {
     return (
       <div>
-        {this.content()}
+        {this.getChildren()}
       </div>
     );
   }

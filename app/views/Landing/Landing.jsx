@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
-import {Row, Panel} from './../Panel';
+import {Row, Panel} from './../../components/Panel';
 
 const Landing = React.createClass({
 

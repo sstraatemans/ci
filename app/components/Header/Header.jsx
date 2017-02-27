@@ -22,9 +22,9 @@ const Header = React.createClass({
     return {
       navItems: [
         {title: "option 1", link: "/"},
-        {title: "option 2", link: "/news"},
-        {title: "option 3", link: "/organisation"},
-        {title: "option 4", link: "/organisation"},
+        {title: "news", link: "/news"},
+        {title: "twitter", link: "/twitter"},
+        {title: "tabs", link: "/tabs"},
         {title: "option 5", link: "/organisation"},
         {title: "option 6", link: "/organisation"},
         {title: "option 7", link: "/organisation"},

@@ -1,0 +1,16 @@
+.tabs {
+  border-bottom: 1px solid black;
+}
+
+.tabList {
+  list-style-type: none;
+}
+
+.tabItem {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.tabItemSelected {
+  color: red;
+}
