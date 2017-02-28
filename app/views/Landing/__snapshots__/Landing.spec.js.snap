@@ -1,0 +1,48 @@
+exports[`test Landing snapshot 1`] = `
+<div
+  className="landing">
+  <Row>
+    <Panel
+      showMore="true">
+      test
+      <br />
+      sdfsdf
+      <br />
+      <br />
+      sdf
+      <br />
+      sdsf
+      <br />
+      sdf
+      <br />
+      ssdf
+      <br />
+      <br />
+      <br />
+      sdfsdfssdf
+      <br />
+      <br />
+      <br />
+      sssdfsdf
+    </Panel>
+    <Panel>
+      test
+      <br />
+      sdfsdf
+      <br />
+      <br />
+      sdf
+      <br />
+      sdsf
+      <br />
+      sdf
+      <br />
+      ssdf
+      <br />
+      <br />
+      <br />
+      sdfsdf
+    </Panel>
+  </Row>
+</div>
+`;

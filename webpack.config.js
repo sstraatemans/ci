@@ -17,7 +17,7 @@ module.exports = function(env) {
       exclude: /node_modules/
     },
     {
-      test: /\.jsx?$/,
+      test: /\.jsx$/,
       loader: 'babel-loader',
       include: [
         path.resolve('app'),
