@@ -11,7 +11,12 @@ test('Landing snapshot', () => {
   expect(tree).toMatchSnapshot();
 });
 
-// test('Laning should render word landing', () => {
-//   const component = render(<Landing />);
-//   expect(component.find('.landing').text()).toEqual('landing');
-// });
+test('check row', () => {
+  const component = render(<Landing />);
+  expect(component.find('.row').length).toBe(1);
+});
+
+test('check if there are panels in the row', () => {
+  const component = render(<Landing />);
+  expect(component.find('.row .panel').length).toBe(2);
+});

@@ -69,7 +69,7 @@ const Row = React.createClass({
 
   render () {
     return (
-      <div>
+      <div className={styles.row}>
         {this.getChildren()}
       </div>
     );
