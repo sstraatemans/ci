@@ -2,7 +2,7 @@
   "name": "Company.info",
   "author": "Steven Straatemans <steven.straatemans@company.info>",
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest --coverage",
     "update-test": "npm run test -- -u",
     "build": "webpack",
     "build-prod": "NODE_ENV=production webpack --env.prod=true",

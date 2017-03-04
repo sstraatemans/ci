@@ -38,12 +38,11 @@ export const ci = (id) => {
 		return new RegExp(' ' + className + ' ').test(' ' + id.className + ' ');
   };
 
-  let toggleClass = () => {
-    var newClass = ' ' + id.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
+  let toggleClass = (className) => {
     if (hasClass(className)) {
         removeClass(className);
     } else {
-        addClassName(className);
+        addClass(className);
     }
 
     return this;
