@@ -1,10 +1,5 @@
 /* eslint-env node, jest */
-import jsdom from 'jsdom';
 import {ci} from './';
-
-global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
-global.window = document.defaultView;
-global.navigator = {userAgent: 'node.js'};
 
 test('add Class', () => {
   document.body.innerHTML =

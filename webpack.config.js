@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = function(env) {
   const nodeEnv = env && env.prod ? 'production' : 'development';
@@ -68,6 +69,7 @@ module.exports = function(env) {
   } else {
     plugins.push(
       new webpack.HotModuleReplacementPlugin()
+      //new BundleAnalyzerPlugin()
     );
 
     rules.push(
@@ -87,7 +89,7 @@ module.exports = function(env) {
 
   return {
     context: __dirname,
-    entry: ['./app/ClientApp.jsx'],
+    entry: './app/ClientApp.jsx',
     devtool: isProd ? '' : 'cheap-module-source-map',
     plugins,
     output: {

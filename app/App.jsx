@@ -36,6 +36,11 @@ const App = () => (
         selectedTab='1'
         component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/TabsView/TabsView')} />}
       />
+      <Match
+        exactly
+        pattern='/saga'
+        component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/Saga')} />}
+      />
       <Miss component={NotFound} />
     </Layout>
   </Provider>

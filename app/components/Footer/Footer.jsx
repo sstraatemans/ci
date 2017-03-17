@@ -1,6 +1,11 @@
 import React from 'react';
 
 const Footer = React.createClass({
+
+  componentDidMount () {
+    
+  },
+
   render () {
     return (
       <footer>

@@ -1,15 +1,14 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import localeReducer from './reducers/localeReducer';
+import { createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
-const reducers = combineReducers({
-  localeReducer,
-});
+const sagaMiddleware = createSagaMiddleware();
 
-
-const store = createStore(reducers, compose(
-  applyMiddleware(thunk),
+const store = createStore(rootReducer, compose(
+  applyMiddleware(sagaMiddleware),
   typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
 ));
 
+sagaMiddleware.run(rootSaga);
 export default store;
