@@ -26,7 +26,7 @@ const Header = React.createClass({
         {title: "twitter", link: "/twitter"},
         {title: "tabs", link: "/tabs"},
         {title: "saga", link: "/saga"},
-        {title: "option 7", link: "/organisation"},
+        {title: "autosuggest", link: "/autosuggest"},
         {title: "option 11", link: "/people"}
       ]
     };

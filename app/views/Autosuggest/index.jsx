@@ -2,27 +2,19 @@ import React from 'react';
 const { array } = React.PropTypes;
 import { connect } from 'react-redux';
 import { FetchShows } from './../../store/actions';
-import List from './../../components/List';
-import ListItem from './../../components/ListItem';
+import AutoSuggest from './../../components/AutoSuggest';
 
-const Saga = React.createClass({
+const Autosuggest = React.createClass({
 
 
   componentDidMount () {
-    this.props.dispatch(FetchShows());
+
   },
 
   render (){
     return (
       <div>
-        <List data={this.props.shows}>
-          { this.props.shows.map(
-            (show) => {
-              return (
-                <ListItem {...show} key={show.imdbID} />);
-            }
-          )}
-        </List>
+        <AutoSuggest />
       </div>
     );
   }
@@ -39,4 +31,4 @@ const mapStateToProps = ({ showsReducer }) => {
 
 // connect method from react-router connects the component with redux store
 export default connect(
- mapStateToProps)(Saga);
+ mapStateToProps)(Autosuggest);

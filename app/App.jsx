@@ -41,6 +41,11 @@ const App = () => (
         pattern='/saga'
         component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/Saga')} />}
       />
+      <Match
+        exactly
+        pattern='/autosuggest'
+        component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/Autosuggest')} />}
+      />
       <Miss component={NotFound} />
     </Layout>
   </Provider>
