@@ -28,15 +28,15 @@ const Saga = React.createClass({
   }
 });
 
+
+
 // Subscribe component to redux store and merge the state into
 // component's props
 const mapStateToProps = ({ showsReducer }) => {
-  console.log(showsReducer);
   return {
- shows: showsReducer.shows
-};
+   shows: showsReducer.shows
+  };
 };
 
 // connect method from react-router connects the component with redux store
-export default connect(
- mapStateToProps)(Saga);
+export default connect(mapStateToProps)(Saga);

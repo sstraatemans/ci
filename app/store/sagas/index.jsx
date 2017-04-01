@@ -1,16 +1,16 @@
 import { fork } from 'redux-saga/effects';
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import * as types from "./../actionTypes";
 import { selectors } from '../reducers';
 import { fetchShowsSaga } from './showsSaga';
+import { auth } from './authSaga';
 import actions from '../actions';
 
 
-// Watches for SEARCH_MEDIA_REQUEST action type asynchronously
-function* watchFetchShows() {
-  yield* takeLatest(types.FETCH_SHOWS_REQUEST, fetchShowsSaga);
+function* watchAuth() {
+  yield* takeEvery(types.AUTH_USER_REQUEST, auth);
 }
 
 export default function* rootSaga() {
-  yield fork(watchFetchShows);
+  yield fork(watchAuth);
 }

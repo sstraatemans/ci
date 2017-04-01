@@ -46,6 +46,11 @@ const App = () => (
         pattern='/autosuggest'
         component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/Autosuggest')} />}
       />
+      <Match
+        exactly
+        pattern='/login'
+        component={(props) => <AsyncRoute props={props} loadingPromise={System.import('./views/LoginView')} />}
+      />
       <Miss component={NotFound} />
     </Layout>
   </Provider>

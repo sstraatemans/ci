@@ -9,23 +9,17 @@ class Login extends React.Component {
       password: ''
     };
 
+    this.clickHandler = props.clickHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit (e) {
-
-    axios.get('http://localhost:3000/auth',
-      this.state
-    ).then((d) => {
-      console.log(d);
-    });
-
     e.preventDefault();
+    this.clickHandler(this.state);
   }
 
   handleChange(e){
-    console.log(this);
     let name = e.target.name;
     let value = e.target.value;
 
