@@ -7,10 +7,12 @@ export function authUser (credentials) {
   };
 }
 
-export function authUserSuccess (user) {
+export function authUserSuccess (token) {
+  //save token in localStorage
+  localStorage.setItem("token", token);
   return {
     type: types.AUTH_USER_SUCCESS,
-    user
+    token
   };
 }
 

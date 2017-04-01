@@ -4,10 +4,18 @@ import { authUser } from './../../store/actions';
 import Login from './../../components/Login';
 
 class LoginView extends React.Component{
+  setLoadingState () {
+    if(this.props.loading){
+      return (
+        <div>Loading</div>
+      )
+    }
+  }
 
   render () {
     return (
       <div className='login'>
+        {this.setLoadingState()}
         <Login clickHandler={this.props.loginHandler} />
       </div>
     );

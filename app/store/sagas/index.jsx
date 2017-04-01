@@ -4,7 +4,7 @@ import * as types from "./../actionTypes";
 import { selectors } from '../reducers';
 import { fetchShowsSaga } from './showsSaga';
 import { auth } from './authSaga';
-import actions from '../actions';
+
 
 
 function* watchAuth() {
