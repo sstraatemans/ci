@@ -23,7 +23,7 @@ const Header = React.createClass({
         {title: "tabs", link: "/tabs"},
         {title: "saga", link: "/saga"},
         {title: "autosuggest", link: "/autosuggest"},
-        {title: "option 11", link: "/people"}
+        {title: "login", link: "/login"}
       ]
     };
   },
