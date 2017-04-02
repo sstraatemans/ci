@@ -8,7 +8,21 @@ class LoginView extends React.Component{
     if(this.props.loading){
       return (
         <div>Loading</div>
-      )
+      );
+    }
+  }
+
+  loggedIn () {
+    if(!this.props.user){
+      return (
+        <Login clickHandler={this.props.loginHandler} />
+      );
+    }else{
+      return (
+        <div>
+          {this.props.user.username}
+        </div>
+      );
     }
   }
 
@@ -16,7 +30,8 @@ class LoginView extends React.Component{
     return (
       <div className='login'>
         {this.setLoadingState()}
-        <Login clickHandler={this.props.loginHandler} />
+        {this.loggedIn()}
+
       </div>
     );
   }
