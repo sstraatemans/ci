@@ -27,6 +27,14 @@ class Login extends React.Component {
   }
 
   render () {
+    if(this.props.user){
+      return (
+        <div>
+          {this.props.user.username}
+          <button>Log out</button>
+        </div>
+      );
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

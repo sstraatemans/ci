@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { authUser } from './../../store/actions';
+import { authUser, requestAuthorizedUserAction } from './../../store/actions';
 import Login from './../../components/Login';
 
 class LoginView extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount () {
+    this.props.init();
+  }
+
   setLoadingState () {
     if(this.props.loading){
       return (
@@ -12,25 +20,11 @@ class LoginView extends React.Component{
     }
   }
 
-  loggedIn () {
-    if(!this.props.user){
-      return (
-        <Login clickHandler={this.props.loginHandler} />
-      );
-    }else{
-      return (
-        <div>
-          {this.props.user.username}
-        </div>
-      );
-    }
-  }
-
   render () {
     return (
       <div className='login'>
         {this.setLoadingState()}
-        {this.loggedIn()}
+        <Login user={this.props.user} clickHandler={this.props.loginHandler} logoutHandler={this.props.logoutHandler} />
 
       </div>
     );
@@ -51,6 +45,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         loginHandler: (credentials) => {
             dispatch(authUser(credentials));
+        },
+        init: () => {
+          dispatch(requestAuthorizedUserAction());
         }
     };
 };

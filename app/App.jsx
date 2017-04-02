@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import { Match, Miss, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import {authInit} from './store/actions';
 import AsyncRoute from './utils/AsyncRoute';
 
 import NotFound from './views/NotFound/NotFound';
@@ -11,6 +13,8 @@ import Layout from './components/Layout/Layout';
 if (global) {
   global.System = { import () {} };
 }
+
+
 
 const App = () => (
   <Provider store={store}>

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import styles from './Header.scss';
 import * as util from './util';
 import {ci} from './../../utils';
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import {Nav,NavItem} from './Nav';
 import LanguageSwitcher from './../LanguageSwitcher/LanguageSwitcher';
 import localeData from './../../translations/translations.json';
@@ -14,7 +13,6 @@ const messages = localeData;
 
 const Header = React.createClass({
   propTypes: {
-    intl: intlShape.isRequired
   },
 
 
@@ -75,19 +73,9 @@ const Header = React.createClass({
             );
           })}
         </Nav>
-        <li className={styles.language}>
-          <LanguageSwitcher></LanguageSwitcher>
-        </li>
       </header>
     );
   }
 });
 
-const mapStateToProps = (state) => {
-  return {
-    messages: state.localeReducer.messages
-  };
-};
-
-
-export default connect(mapStateToProps)(injectIntl(Header));
+export default Header;

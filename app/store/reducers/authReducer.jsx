@@ -21,15 +21,28 @@ const setSuccess = (state, action) => {
 
 const setError = (state, action) => {
   const newState = {};
-  Object.assign(newState, state, {loading: false, user: {}});
+  Object.assign(newState, state, {loading: false, user: null});
   return newState;
 };
 
-const setUser = (state, action) => {
+const getAuthorizedRequest = (state, action) => {
   const newState = {};
-  Object.assign(newState, state, {loading: false, user: action.user});
+  Object.assign(newState, state, {loading: true, token: action.token});
   return newState;
 };
+
+const getAuthorizedSuccess = (state, action) => {
+  const newState = {};
+  Object.assign(newState, state, {loading: false, user:action.user});
+  return newState;
+};
+
+const getAuthorizedError = (state, action) => {
+  const newState = {};
+  Object.assign(newState, state, {loading: false, user:null});
+  return newState;
+};
+
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -39,8 +52,15 @@ const authReducer = (state = initialState, action) => {
       return setSuccess(state, action);
     case types.AUTH_USER_ERROR:
       return setError(state, action);
-    case types.USER_ME:
-      return setUser(state, action);
+
+    case types.GET_AUTHORIZEDUSER_REQUEST:
+      return getAuthorizedRequest(state, action);
+    case types.GET_AUTHORIZEDUSER_SUCCESS:
+      return getAuthorizedSuccess(state, action);
+    case types.GET_AUTHORIZEDUSER_ERROR:
+      return getAuthorizedError(state, action);
+
+
     default:
       return state;
     }
