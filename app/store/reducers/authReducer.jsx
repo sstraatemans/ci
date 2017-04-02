@@ -43,6 +43,12 @@ const getAuthorizedError = (state, action) => {
   return newState;
 };
 
+const logout = (state, action) => {
+  const newState = {};
+  Object.assign(newState, state, {loading: false, user:null, token: null});
+  return newState;
+};
+
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,6 +65,8 @@ const authReducer = (state = initialState, action) => {
       return getAuthorizedSuccess(state, action);
     case types.GET_AUTHORIZEDUSER_ERROR:
       return getAuthorizedError(state, action);
+    case types.LOGOUT_AUTHORIZEDUSER:
+      return logout(state, action);
 
 
     default:

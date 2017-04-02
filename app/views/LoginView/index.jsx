@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { authUser, requestAuthorizedUserAction } from './../../store/actions';
+import { authUser, requestAuthorizedUserAction, authLogoutAction } from './../../store/actions';
 import Login from './../../components/Login';
 
 class LoginView extends React.Component{
@@ -45,6 +45,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         loginHandler: (credentials) => {
             dispatch(authUser(credentials));
+        },
+        logoutHandler: (credentials) => {
+            dispatch(authLogoutAction());
         },
         init: () => {
           dispatch(requestAuthorizedUserAction());

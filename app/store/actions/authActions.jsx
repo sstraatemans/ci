@@ -46,3 +46,10 @@ export function successAuthorizedUserAction (user) {
     user
   };
 }
+
+export function authLogoutAction() {
+  localStorage.removeItem("token");
+  return {
+    type: types.LOGOUT_AUTHORIZEDUSER
+  };
+}
