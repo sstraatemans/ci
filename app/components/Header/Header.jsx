@@ -6,9 +6,7 @@ import styles from './Header.scss';
 import * as util from './util';
 import {ci} from './../../utils';
 import {Nav,NavItem} from './Nav';
-import LanguageSwitcher from './../LanguageSwitcher/LanguageSwitcher';
-import localeData from './../../translations/translations.json';
-const messages = localeData;
+import LogoutWrapper from './../Logout/LogoutWrapper';
 
 
 const Header = React.createClass({
@@ -66,6 +64,7 @@ const Header = React.createClass({
         <div className={styles.logo}>
           logo
         </div>
+        <LogoutWrapper />
         <Nav ref={(nav) => {this.nav = nav;}}>
           {this.state.navItems.map((item) => {
             return (

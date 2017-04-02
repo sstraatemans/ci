@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoutWrapper from './../Logout/LogoutWrapper';
 
 class Login extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class Login extends React.Component {
     this.clickHandler = props.clickHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleSubmit (e) {
@@ -27,17 +27,10 @@ class Login extends React.Component {
     this.setState({[name]: value});
   }
 
-  handleLogout () {
-    this.props.logoutHandler();
-  }
-
   render () {
     if(this.props.user){
       return (
-        <div>
-          {this.props.user.username}
-          <button onClick={this.handleLogout}>Log out</button>
-        </div>
+        <LogoutWrapper />
       );
     }
     return (
